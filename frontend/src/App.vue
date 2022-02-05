@@ -1,13 +1,25 @@
 <template>
   <div class="app">
     <header>
-      <div class="section">Header</div>
+      <div class="section">
+        <p>Knowledge Frontend Test</p>
+        <p><img :src="WallboxIcon" alt="Wallbox" /></p>
+      </div>
     </header>
     <main>
       <div class="section"><router-view /></div>
     </main>
     <footer>
-      <div class="section">Footer</div>
+      <div class="section">
+        <p>Bruno Garcia</p>
+        <p>
+          <a href="mailto:bruno.garcia.echegaray@gmail.com"
+            >bruno.garcia.echegaray@gmail.com</a
+          >
+          <img :src="GithubIcon" alt="Github" />
+          <img :src="LinkedinIcon" alt="Linkedin" />
+        </p>
+      </div>
     </footer>
   </div>
 </template>
@@ -15,12 +27,21 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import useAppInit from "@/composables/useAppInit";
+import WallboxIcon from "@/assets/wallbox.svg";
+import GithubIcon from "@/assets/github.svg";
+import LinkedinIcon from "@/assets/linkedin.svg";
 
 export default defineComponent({
   name: "App",
 
   setup() {
     useAppInit();
+
+    return {
+      WallboxIcon,
+      GithubIcon,
+      LinkedinIcon,
+    };
   },
 });
 </script>
