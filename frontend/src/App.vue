@@ -1,9 +1,15 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="app">
+    <header>
+      <div class="section">Header</div>
+    </header>
+    <main>
+      <div class="section"><router-view /></div>
+    </main>
+    <footer>
+      <div class="section">Footer</div>
+    </footer>
   </div>
-  <router-view />
 </template>
 
 <script lang="ts">
@@ -20,24 +26,60 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+:root {
+  --main-bg-color: #f2f2f2;
+  --dark-bg-color: #000000;
+  --color-white: #ffffff;
+  --app-height: 100vh;
+  --header-height: 64px;
+  --footer-height: 54px;
 }
 
-#nav {
-  padding: 30px;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+.app {
+  align-items: center;
+  background-color: var(--main-bg-color);
+  display: flex;
+  flex-direction: column;
+  height: var(--app-height);
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  header,
+  footer,
+  main {
+    margin: auto;
+    width: 100%;
+  }
+
+  header .section,
+  footer .section,
+  main .section {
+    height: 100%;
+    width: 80%;
+    margin: auto;
+  }
+
+  header {
+    flex: 0 0 var(--header-height);
+  }
+
+  main {
+    flex: 1;
+  }
+
+  footer {
+    flex: 0 0 var(--footer-height);
+  }
+
+  header,
+  footer {
+    background-color: var(--dark-bg-color);
+    color: var(--color-white);
   }
 }
 </style>
