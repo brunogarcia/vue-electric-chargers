@@ -8,7 +8,7 @@ import { Charger } from "@/store/store.types";
  */
 async function fetchChargers(): Promise<AxiosResponse<Charger[]>> {
   try {
-    const response = await axios.get("/api/chargers");
+    const response = await axios.get("/chargers");
     return response.data;
   } catch (error) {
     console.error(error);
