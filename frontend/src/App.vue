@@ -2,23 +2,41 @@
   <div class="app">
     <header>
       <div class="section">
-        <p>Knowledge Frontend Test</p>
-        <p><img :src="WallboxIcon" alt="Wallbox" /></p>
+        <div class="columns">
+          <div class="col-6">
+            <p>Knowledge Frontend Test</p>
+          </div>
+          <div class="col-6 text-align-right">
+            <p><img :src="WallboxIcon" alt="Wallbox" /></p>
+          </div>
+        </div>
       </div>
     </header>
     <main>
-      <div class="section"><router-view /></div>
+      <div class="section">
+        <router-view />
+      </div>
     </main>
     <footer>
       <div class="section">
-        <p>Bruno Garcia</p>
-        <p>
-          <a href="mailto:bruno.garcia.echegaray@gmail.com"
-            >bruno.garcia.echegaray@gmail.com</a
-          >
-          <img :src="GithubIcon" alt="Github" />
-          <img :src="LinkedinIcon" alt="Linkedin" />
-        </p>
+        <div class="columns">
+          <div class="col-6">
+            <p>Bruno Garcia</p>
+          </div>
+          <div class="col-6 text-align-right">
+            <p class="footer--nav">
+              <a href="mailto:bruno.garcia.echegaray@gmail.com">
+                bruno.garcia.echegaray@gmail.com
+              </a>
+              <a href="https://github.com/brunogarcia/">
+                <img :src="GithubIcon" alt="Github" />
+              </a>
+              <a href="https://www.linkedin.com/in/bruno-garcia-echegaray/">
+                <img :src="LinkedinIcon" alt="Linkedin" />
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
     </footer>
   </div>
@@ -95,12 +113,36 @@ html {
 
   footer {
     flex: 0 0 var(--footer-height);
+    a {
+      color: var(--color-white);
+      text-decoration: none;
+    }
+    .footer--nav {
+      a {
+        margin-left: 26px;
+      }
+    }
   }
 
   header,
   footer {
     background-color: var(--dark-bg-color);
     color: var(--color-white);
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .columns {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .col-6 {
+    width: 50%;
+  }
+
+  .text-align-right {
+    text-align: right;
   }
 }
 </style>
