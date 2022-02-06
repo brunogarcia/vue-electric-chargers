@@ -45,9 +45,9 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import useAppInit from "@/composables/useAppInit";
-import WallboxIcon from "@/assets/wallbox.svg";
-import GithubIcon from "@/assets/github.svg";
-import LinkedinIcon from "@/assets/linkedin.svg";
+import WallboxIcon from "@/assets/icons/large_wallbox.svg";
+import GithubIcon from "@/assets/icons/github.svg";
+import LinkedinIcon from "@/assets/icons/linkedin.svg";
 
 export default defineComponent({
   name: "App",
