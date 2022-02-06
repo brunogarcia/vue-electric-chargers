@@ -1,5 +1,5 @@
 <template>
-  <div class="status" :class="style">
+  <div role="status" :aria-label="label" class="status" :class="style">
     {{ name }}
   </div>
 </template>
@@ -32,6 +32,8 @@ export default defineComponent({
     const isReady = ChargerStatusReady.includes(props.chargerStatus);
     const isError = ChargerStatusError.includes(props.chargerStatus);
 
+    const label = `${props.chargerStatus} charger status`;
+
     const name = isCharging
       ? NameStatus.Charging
       : isReady
@@ -49,6 +51,7 @@ export default defineComponent({
     return {
       name,
       style,
+      label,
     };
   },
 });

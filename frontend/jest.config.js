@@ -3,4 +3,6 @@ module.exports = {
   transform: {
     "^.+\\.vue$": "vue-jest",
   },
+  testMatch: ["**/src/**/*.spec.[jt]s?(x)"],
+  setupFilesAfterEnv: ["<rootDir>/jest-setup.ts"],
 };
