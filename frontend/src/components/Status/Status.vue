@@ -63,7 +63,7 @@ export default defineComponent({
   padding-top: 7px;
   padding-bottom: 7px;
   border-radius: 12px;
-  font-family: Roboto;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: 10px;
   font-weight: 500;
   line-height: 10px;

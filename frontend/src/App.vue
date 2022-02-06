@@ -78,7 +78,7 @@ body,
 html {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 
 .app {
