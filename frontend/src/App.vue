@@ -7,7 +7,10 @@
             <p>Knowledge Frontend Test</p>
           </div>
           <div class="col-6 text-align-right">
-            <p><img :src="WallboxIcon" alt="Wallbox" /></p>
+            <p>
+              <img :src="LargeWallboxIcon" alt="Wallbox" class="hide-small" />
+              <img :src="SmallWallboxIcon" alt="Wallbox" class="hide-large" />
+            </p>
           </div>
         </div>
       </div>
@@ -20,7 +23,7 @@
     <footer>
       <div class="section">
         <div class="columns">
-          <div class="col-6">
+          <div class="col-6 hide-small">
             <p>Bruno Garcia</p>
           </div>
           <div class="col-6 text-align-right">
@@ -45,7 +48,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import useAppInit from "@/composables/useAppInit";
-import WallboxIcon from "@/assets/icons/large_wallbox.svg";
+import LargeWallboxIcon from "@/assets/icons/large_wallbox.svg";
+import SmallWallboxIcon from "@/assets/icons/small_wallbox.svg";
 import GithubIcon from "@/assets/icons/github.svg";
 import LinkedinIcon from "@/assets/icons/linkedin.svg";
 
@@ -56,7 +60,8 @@ export default defineComponent({
     useAppInit();
 
     return {
-      WallboxIcon,
+      LargeWallboxIcon,
+      SmallWallboxIcon,
       GithubIcon,
       LinkedinIcon,
     };
@@ -79,6 +84,18 @@ html {
   margin: 0;
   padding: 0;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
+}
+
+@media screen and (min-width: 640px) {
+  .hide-large {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .hide-small {
+    display: none;
+  }
 }
 
 .app {
