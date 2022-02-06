@@ -1,4 +1,5 @@
 import Connectivity from "./Connectivity.vue";
+import { ConnectivityType } from "@/types";
 
 export default {
   title: "Components/Connectivity",
@@ -15,15 +16,15 @@ const Template = (args) => ({
 
 export const Wifi = Template.bind({});
 Wifi.args = {
-  connectivityType: "wifi",
+  connectivityType: ConnectivityType.Wifi,
 };
 
 export const Ethernet = Template.bind({});
 Ethernet.args = {
-  connectivityType: "ethernet",
+  connectivityType: ConnectivityType.Ethernet,
 };
 
 export const Unknown = Template.bind({});
 Unknown.args = {
-  connectivityType: "unknown",
+  connectivityType: ConnectivityType.Unknown,
 };

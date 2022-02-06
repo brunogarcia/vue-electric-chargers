@@ -1,10 +1,11 @@
 import { render, fireEvent } from "@testing-library/vue";
 import Button from "./Button.vue";
+import { ButtonStyle } from "@/types";
 
 describe("Button.vue", () => {
   it("renders label and primary style", async () => {
     const label = "View session";
-    const style = "primary";
+    const style = ButtonStyle.Primary;
     const { getByText } = render(Button, {
       props: { label, style },
     });
@@ -19,7 +20,7 @@ describe("Button.vue", () => {
 
   it("renders label and danger style", async () => {
     const label = "Delete";
-    const style = "danger";
+    const style = ButtonStyle.Danger;
     const { getByText } = render(Button, {
       props: { label, style },
     });
@@ -35,12 +36,12 @@ describe("Button.vue", () => {
   it("emitts the click event", async () => {
     const expectedClick = ["click", [[]]];
 
-    const label = "View session";
+    const label = "Example";
     const { getByText, emitted } = render(Button, {
       props: { label },
     });
 
-    const button = getByText("View session");
+    const button = getByText("Example");
     await fireEvent.click(button);
 
     const [clickEventEmitted] = Object.entries(emitted());

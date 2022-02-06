@@ -13,4 +13,7 @@ export enum NameStatus {
 
 export type ChargerStatus = 10 | 11 | 20 | 45 | 50 | 51 | 52 | 53 | 55;
 
-export type ButtonStyle = "primary" | "danger";
+export enum ButtonStyle {
+  Primary = "primary",
+  Danger = "danger",
+}
