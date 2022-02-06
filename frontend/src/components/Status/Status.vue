@@ -58,18 +58,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
-:root {
-  --status-charging-bg-color: #d6dbff;
-  --status-charging-text: #2f46ff;
-  --status-ready-bg-color: #d7fff5;
-  --status-ready-text: #52b89e;
-  --status-error-bg-color: #ffe7e6;
-  --status-error-text: #ff5050;
-}
-
 .status {
   display: inline-block;
-  padding: 7px 8px;
+  padding-top: 7px;
+  padding-bottom: 7px;
   border-radius: 12px;
   font-family: Roboto;
   font-size: 10px;
@@ -79,6 +71,7 @@ export default defineComponent({
   text-transform: uppercase;
   background-color: #eeeeee;
   color: #000000;
+  min-width: 67px;
 }
 
 .status--charging {
