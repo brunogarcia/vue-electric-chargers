@@ -6,18 +6,11 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
+import { ChargerStatus, NameStatus } from "@/types";
 
-type ChargerStatus = 10 | 11 | 20 | 45 | 50 | 51 | 52 | 53 | 55;
 const ChargerStatusCharging: ChargerStatus[] = [20];
 const ChargerStatusReady: ChargerStatus[] = [10, 11];
 const ChargerStatusError: ChargerStatus[] = [45, 50, 51, 52, 53, 55];
-
-enum NameStatus {
-  Charging = "charging",
-  Ready = "ready",
-  Error = "error",
-  Unknown = "unknown",
-}
 
 export default defineComponent({
   name: "Status",

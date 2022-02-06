@@ -6,8 +6,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, computed, PropType } from "vue";
-
-type Style = "primary" | "danger";
+import { ButtonStyle } from "@/types";
 
 export default defineComponent({
   name: "Button",
@@ -17,7 +16,7 @@ export default defineComponent({
       required: true,
     },
     style: {
-      type: String as PropType<Style>,
+      type: String as PropType<ButtonStyle>,
       default: "primary",
     },
   },
