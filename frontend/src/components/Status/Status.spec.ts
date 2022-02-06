@@ -2,35 +2,53 @@ import { render } from "@testing-library/vue";
 import Status from "./Status.vue";
 
 describe("Status.vue", () => {
-  it("renders ready status name", () => {
+  it("renders ready status", () => {
     const chargerStatus = 10;
     const { getByText } = render(Status, {
       props: { chargerStatus },
     });
-    expect(getByText("ready")).toBeInTheDocument();
+
+    const status = getByText("ready");
+
+    expect(status).toBeInTheDocument();
+    expect((status as HTMLDivElement).className).toBe("status status--ready");
   });
 
-  it("renders charging status name", () => {
+  it("renders charging status", () => {
     const chargerStatus = 20;
     const { getByText } = render(Status, {
       props: { chargerStatus },
     });
-    expect(getByText("charging")).toBeInTheDocument();
+
+    const status = getByText("charging");
+
+    expect(status).toBeInTheDocument();
+    expect((status as HTMLDivElement).className).toBe(
+      "status status--charging"
+    );
   });
 
-  it("renders error status name", () => {
+  it("renders error status", () => {
     const chargerStatus = 50;
     const { getByText } = render(Status, {
       props: { chargerStatus },
     });
-    expect(getByText("error")).toBeInTheDocument();
+
+    const status = getByText("error");
+
+    expect(status).toBeInTheDocument();
+    expect((status as HTMLDivElement).className).toBe("status status--error");
   });
 
-  it("renders unknown status name", () => {
+  it("renders unknown status", () => {
     const chargerStatus = 99;
     const { getByText } = render(Status, {
       props: { chargerStatus },
     });
-    expect(getByText("unknown")).toBeInTheDocument();
+
+    const status = getByText("unknown");
+
+    expect(status).toBeInTheDocument();
+    expect((status as HTMLDivElement).className).toBe("status");
   });
 });
