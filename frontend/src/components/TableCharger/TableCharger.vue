@@ -13,8 +13,8 @@
   <td>{{ charger.currentCharging }}</td>
   <td>{{ getDateformated(charger.manufacturedDate) }}</td>
   <td>
-    <Button label="View Session" />
-    <Button :style="ButtonStyle.Danger" label="Delete" />
+    <Button label="View Session" @click="onViewSession" />
+    <Button :style="ButtonStyle.Danger" label="Delete" @click="onDelete" />
   </td>
 </template>
 
@@ -45,12 +45,22 @@ export default defineComponent({
     Button,
   },
 
-  setup() {
+  setup(props, { emit }) {
+    const onViewSession = () => {
+      emit("view-session", props.charger.id);
+    };
+
+    const onDelete = () => {
+      emit("delete", props.charger.id);
+    };
+
     return {
       ButtonStyle,
       getDateformated,
       getChargerImage,
       getChargingTime,
+      onViewSession,
+      onDelete,
     };
   },
 });
