@@ -22,8 +22,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import useChargers from "@/composables/useChargers";
-import tableHeader from "@/components/Table/utils/tableHeader";
-import TableCharger from "@/components/Table/TableCharger.vue";
+import tableHeader from "@/components/Table/utils/header";
+import TableCharger from "@/components/TableCharger.vue/TableCharger.vue";
 
 export default defineComponent({
   name: "Table",

@@ -4,6 +4,7 @@
       <li
         v-for="item in tableFilters()"
         :key="item.id"
+        :data-id="item.id"
         @click="onActiveTableFilter(item.id)"
         :class="isActiveTableFilter(item.id)"
       >
@@ -17,7 +18,7 @@
 import { defineComponent } from "vue";
 import { ChargerStatusName } from "@/types";
 import useChargers from "@/composables/useChargers";
-import tableFilters from "@/components/Table/utils/tableFilters";
+import tableFilters from "@/components/TableFilters/utils/data";
 
 export default defineComponent({
   name: "TableFilter",

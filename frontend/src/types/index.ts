@@ -25,9 +25,9 @@ export interface Charger {
   type: ChargerType;
   name: string;
   serialNumber: string;
-  chargingTime: number;
-  energySupplied: number;
-  currentCharging: number;
+  chargingTime: number | null;
+  energySupplied: number | null;
+  currentCharging: number | null;
   wifiSignal: number;
   status: ChargerStatus;
   manufacturedDate: string;

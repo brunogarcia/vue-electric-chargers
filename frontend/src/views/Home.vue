@@ -8,7 +8,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import Table from "@/components/Table/Table.vue";
-import TableFilter from "@/components/Table/TableFilter.vue";
+import TableFilter from "@/components/TableFilter/TableFilter.vue";
 
 export default defineComponent({
   name: "Home",
