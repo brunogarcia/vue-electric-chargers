@@ -2,20 +2,18 @@
   <table class="table">
     <thead>
       <tr>
-        <th></th>
-        <th>Device</th>
-        <th>Connectivity</th>
-        <th>Status</th>
-        <th>Charging Time</th>
-        <th>Energy Supplied</th>
-        <th>Charging Current</th>
-        <th>Manufactured Date</th>
-        <th>Action</th>
+        <th
+          v-for="(item, index) in tableHeader()"
+          :key="index"
+          :width="item.width"
+        >
+          <span v-html="item.name"></span>
+        </th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="charger in chargers" :key="charger.id">
-        <TableCharger :charger="charger" />
+      <tr v-for="item in chargers" :key="item.id">
+        <TableCharger :charger="item" />
       </tr>
     </tbody>
   </table>
@@ -23,8 +21,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import TableCharger from "@/components/Table/TableCharger.vue";
 import useChargers from "@/composables/useChargers";
+import tableHeader from "@/components/Table/utils/tableHeader";
+import TableCharger from "@/components/Table/TableCharger.vue";
 
 export default defineComponent({
   name: "Table",
@@ -36,13 +35,27 @@ export default defineComponent({
 
     return {
       chargers,
+      tableHeader,
     };
   },
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .table {
   width: 100%;
+  color: #8e98a7;
+  background-color: #fff;
+  border-collapse: collapse;
+  border-top: 1px solid #ededed;
+  thead th {
+    font-weight: 500;
+    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+  tbody tr:nth-child(odd) {
+    background: #fbfbfb;
+  }
 }
 </style>

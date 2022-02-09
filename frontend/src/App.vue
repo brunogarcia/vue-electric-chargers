@@ -15,7 +15,7 @@
         </div>
       </div>
     </header>
-    <main>
+    <main v-if="!loading">
       <div class="section">
         <router-view />
       </div>
@@ -48,6 +48,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import useAppInit from "@/composables/useAppInit";
+import useLoading from "@/composables/useLoading";
 import LargeWallboxIcon from "@/assets/icons/large_wallbox.svg";
 import SmallWallboxIcon from "@/assets/icons/small_wallbox.svg";
 import GithubIcon from "@/assets/icons/github.svg";
@@ -58,8 +59,10 @@ export default defineComponent({
 
   setup() {
     useAppInit();
+    const { loading } = useLoading();
 
     return {
+      loading,
       LargeWallboxIcon,
       SmallWallboxIcon,
       GithubIcon,
@@ -84,6 +87,7 @@ html {
   margin: 0;
   padding: 0;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 500;
 }
 
 @media screen and (min-width: 640px) {
@@ -126,6 +130,8 @@ html {
 
   main {
     flex: 1;
+    padding-bottom: 50px;
+    background-color: var(--main-bg-color);
   }
 
   footer {

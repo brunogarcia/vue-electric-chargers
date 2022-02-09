@@ -5,12 +5,12 @@ import {
   useStore as baseUseStore,
 } from "vuex";
 
-import Chargers from "@/store/chargers";
+import App from "@/store/app";
 import { StateRoot } from "@/store/store.types";
 
 export const key: InjectionKey<VuexStore<StateRoot>> = Symbol();
 
-export const store = createStore<StateRoot>(Chargers);
+export const store = createStore<StateRoot>(App);
 
 export function useStore(): VuexStore<StateRoot> {
   return baseUseStore(key);

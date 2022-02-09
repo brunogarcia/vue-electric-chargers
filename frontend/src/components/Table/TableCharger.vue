@@ -1,6 +1,11 @@
 <template>
-  <td class="charger--image"><img :src="getChargerImage(charger.type)" /></td>
-  <td>{{ charger.name }}</td>
+  <td class="charger--image">
+    <img :src="getChargerImage(charger.type)" />
+  </td>
+  <td>
+    {{ charger.type }}<br />
+    {{ charger.serialNumber }}
+  </td>
   <td><Connectivity :connectivityType="charger.connectivityType" /></td>
   <td><Status :chargerStatus="charger.status" /></td>
   <td>{{ getChargingTime(charger.chargingTime) }}</td>
@@ -16,8 +21,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 
-import { ButtonStyle } from "@/types";
-import { Charger } from "@/store/store.types";
+import { Charger, ButtonStyle } from "@/types";
 
 import getDateformated from "@/utils/getDateformated";
 import getChargerImage from "@/utils/getChargerImage";
@@ -55,5 +59,9 @@ export default defineComponent({
 <style scoped>
 .charger--image {
   text-align: center;
+}
+td {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 </style>
