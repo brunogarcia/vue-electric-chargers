@@ -1,5 +1,5 @@
 import Connectivity from "./Connectivity.vue";
-import { ConnectivityType } from "@/types";
+import { ConnectivityType } from "../../types";
 
 export default {
   title: "Components/Connectivity",
