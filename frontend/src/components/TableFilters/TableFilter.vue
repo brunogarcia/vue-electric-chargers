@@ -4,7 +4,7 @@
       <li
         v-for="item in tableFilters()"
         :key="item.id"
-        :data-id="item.id"
+        :data-testid="item.id"
         @click="onActiveTableFilter(item.id)"
         :class="isActiveTableFilter(item.id)"
       >

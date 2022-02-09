@@ -15,7 +15,7 @@ export default function mockShoppingState(): StateRoot {
         energySupplied: 20,
         currentCharging: 20,
         wifiSignal: 50,
-        status: 10,
+        status: 10, // ready
         manufacturedDate: "2016-02-01T02:48:54.858Z",
         connectivityType: ConnectivityType.Wifi,
       },
@@ -28,7 +28,7 @@ export default function mockShoppingState(): StateRoot {
         energySupplied: 15,
         currentCharging: 32,
         wifiSignal: 25,
-        status: 20,
+        status: 20, // charging
         manufacturedDate: "2017-08-29T20:23:07.677Z",
         connectivityType: ConnectivityType.Wifi,
       },
@@ -41,7 +41,7 @@ export default function mockShoppingState(): StateRoot {
         energySupplied: null,
         currentCharging: null,
         wifiSignal: 25,
-        status: 50,
+        status: 50, // error
         manufacturedDate: "2018-04-06T17:25:13.045Z",
         connectivityType: ConnectivityType.Wifi,
       },

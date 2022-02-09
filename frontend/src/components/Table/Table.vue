@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="item in chargers" :key="item.id">
+      <tr v-for="item in chargers" :key="item.id" data-testid="table-charger">
         <TableCharger :charger="item" />
       </tr>
     </tbody>

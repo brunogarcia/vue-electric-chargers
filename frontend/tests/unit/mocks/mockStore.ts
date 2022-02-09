@@ -1,9 +1,9 @@
 import App from "@/store/app";
-import mockShoppingState from "./mockAppState";
+import mockAppState from "./mockAppState";
 
 const mockStore = {
   ...App,
-  state: mockShoppingState(),
+  state: mockAppState(),
 };
 
 export default mockStore;
