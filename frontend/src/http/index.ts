@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { Charger } from "@/store/store.types";
+import { Charger } from "@/types";
 
 /**
  * Fetch the chargers list

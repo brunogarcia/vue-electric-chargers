@@ -1,17 +1,58 @@
-export interface Charger {
-  id: number;
-  type: string;
-  name: string;
-  serialNumber: string;
-  chargingTime: number;
-  energySupplied: number;
-  currentCharging: number;
-  wifiSignal: number;
-  status: number;
-  manufacturedDate: string;
-  connectivityType: string;
-}
+import { ActionContext } from "vuex";
+import { Charger, ChargerStatusName } from "@/types";
 
 export interface StateRoot {
+  tableFilter: ChargerStatusName;
+  loading: boolean;
   chargers: Charger[];
 }
+
+export enum ACTIONS {
+  FETCH_CHARGERS = "FETCH_CHARGERS",
+  SET_TABLE_FILTER = "ACTIVE_TABLE_FILTER",
+}
+
+export enum MUTATION {
+  SAVE_CHARGERS = "SAVE_CHARGERS",
+  SAVE_TABLE_FILTER = "SAVE_TABLE_FILTER",
+  START_LOADING = "START_LOADING",
+  END_LOADING = "END_LOADING",
+}
+
+export enum GETTERS {
+  CHARGERS = "CHARGERS",
+  TABLE_FILTER = "TABLE_FILTER",
+  LOADING = "LOADING",
+}
+
+type AugmentedActionContext = {
+  commit<K extends keyof AppMutations>(
+    key: K,
+    payload?: Parameters<AppMutations[K]>[1]
+  ): ReturnType<AppMutations[K]>;
+  getters<K extends keyof AppGetters>(
+    key: K,
+    payload: Parameters<AppGetters[K]>[1]
+  ): ReturnType<AppGetters[K]>;
+} & Omit<ActionContext<StateRoot, StateRoot>, "commit">;
+
+export interface AppActions {
+  [ACTIONS.FETCH_CHARGERS]({ commit }: AugmentedActionContext): Promise<void>;
+  [ACTIONS.SET_TABLE_FILTER](
+    { commit }: AugmentedActionContext,
+    payload: ChargerStatusName
+  ): Promise<void>;
+}
+
+export type AppMutations<S = StateRoot> = {
+  [MUTATION.SAVE_CHARGERS](state: S, payload: Charger[]): void;
+  [MUTATION.SAVE_TABLE_FILTER](state: S, payload: ChargerStatusName): void;
+  [MUTATION.START_LOADING](state: S): void;
+  [MUTATION.END_LOADING](state: S): void;
+};
+
+export type AppGetters = {
+  [GETTERS.CHARGERS](state: StateRoot): Charger[];
+  [GETTERS.TABLE_FILTER](state: StateRoot): ChargerStatusName;
+  [GETTERS.LOADING](state: StateRoot): boolean;
+};

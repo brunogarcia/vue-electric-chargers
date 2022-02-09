@@ -1,6 +1,6 @@
 import { onMounted } from "vue";
 import { useStore } from "@/store";
-import { ACTIONS } from "@/store/chargers/chargers.types";
+import { ACTIONS } from "@/store/store.types";
 
 export default function useAppInit(): void {
   const store = useStore();

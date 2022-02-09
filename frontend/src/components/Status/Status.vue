@@ -1,16 +1,13 @@
 <template>
   <div role="status" :aria-label="label" class="status" :class="style">
-    {{ name }}
+    {{ getChargeStatusName(chargerStatus) }}
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { ChargerStatus, NameStatus } from "@/types";
-
-const ChargerStatusCharging: ChargerStatus[] = [20];
-const ChargerStatusReady: ChargerStatus[] = [10, 11];
-const ChargerStatusError: ChargerStatus[] = [45, 50, 51, 52, 53, 55];
+import { ChargerStatus } from "@/types";
+import getChargerStatus from "@/utils/getChargerStatus";
 
 export default defineComponent({
   name: "Status",
@@ -21,28 +18,21 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const isCharging = ChargerStatusCharging.includes(props.chargerStatus);
-    const isReady = ChargerStatusReady.includes(props.chargerStatus);
-    const isError = ChargerStatusError.includes(props.chargerStatus);
-
     const label = `${props.chargerStatus} charger status`;
-
-    const name = isCharging
-      ? NameStatus.Charging
-      : isReady
-      ? NameStatus.Ready
-      : isError
-      ? NameStatus.Error
-      : NameStatus.Unknown;
-
+    const {
+      isChargeStatusCharging,
+      isChargeStatusReady,
+      isChargeStatusError,
+      getChargeStatusName,
+    } = getChargerStatus;
     const style = {
-      "status--charging": isCharging,
-      "status--ready": isReady,
-      "status--error": isError,
+      "status--charging": isChargeStatusCharging(props.chargerStatus),
+      "status--ready": isChargeStatusReady(props.chargerStatus),
+      "status--error": isChargeStatusError(props.chargerStatus),
     };
 
     return {
-      name,
+      getChargeStatusName,
       style,
       label,
     };
