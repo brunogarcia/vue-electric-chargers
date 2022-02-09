@@ -1,10 +1,10 @@
 import { fireEvent } from "@testing-library/vue";
-import TableFilter from "./TableFilter.vue";
+import TableFilters from "./TableFilters.vue";
 import renderComponent from "../../../tests/unit/helpers/renderComponent";
 
-describe("TableFilter.vue", () => {
+describe("TableFilters.vue", () => {
   it("renders the filters", () => {
-    const { getByText } = renderComponent(TableFilter);
+    const { getByText } = renderComponent(TableFilters);
 
     const filterAll = getByText("all");
     const filterReady = getByText("ready");
@@ -18,7 +18,7 @@ describe("TableFilter.vue", () => {
   });
 
   it("renders the filter ALL actived by default", () => {
-    const { getByText } = renderComponent(TableFilter);
+    const { getByText } = renderComponent(TableFilters);
 
     const filterAll = getByText("all");
     const filterReady = getByText("ready");
@@ -32,7 +32,7 @@ describe("TableFilter.vue", () => {
   });
 
   it("after clicking on the filter READY, this one should be activated", async () => {
-    const { getByText } = renderComponent(TableFilter);
+    const { getByText } = renderComponent(TableFilters);
 
     const filterAll = getByText("all");
     const filterReady = getByText("ready");
@@ -48,7 +48,7 @@ describe("TableFilter.vue", () => {
   });
 
   it("after clicking on the filter CHARGING, this one should be activated", async () => {
-    const { getByText } = renderComponent(TableFilter);
+    const { getByText } = renderComponent(TableFilters);
 
     const filterAll = getByText("all");
     const filterReady = getByText("ready");
@@ -64,7 +64,7 @@ describe("TableFilter.vue", () => {
   });
 
   it("after clicking on the filter ERROR, this one should be activated", async () => {
-    const { getByText } = renderComponent(TableFilter);
+    const { getByText } = renderComponent(TableFilters);
 
     const filterAll = getByText("all");
     const filterReady = getByText("ready");

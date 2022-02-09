@@ -1,6 +1,6 @@
 <template>
-  <div class="table-wrapper">
-    <TableFilter />
+  <div class="container">
+    <TableFilters />
     <Table />
   </div>
 </template>
@@ -8,19 +8,19 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import Table from "@/components/Table/Table.vue";
-import TableFilter from "@/components/TableFilter/TableFilter.vue";
+import TableFilters from "@/components/TableFilters/TableFilters.vue";
 
 export default defineComponent({
   name: "Home",
   components: {
     Table,
-    TableFilter,
+    TableFilters,
   },
 });
 </script>
 
-<style lang="scss" scoped>
-.table-wrapper {
+<style scoped>
+.container {
   margin-top: 65px;
   background-color: #fff;
   border-radius: 5px;

@@ -1,4 +1,4 @@
-export default function getDateformated(manufacturedDate: string): string{
+export default function getDateformated(manufacturedDate: string): string {
   const date = new Date(manufacturedDate);
   const options: Intl.DateTimeFormatOptions = {
     day: "2-digit",

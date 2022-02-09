@@ -43,34 +43,33 @@ export default defineComponent({
   },
 });
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .container {
   padding-top: 20px;
-  ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #fff;
-    border-radius: 5px;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  li {
-    margin-right: 30px;
-    text-transform: uppercase;
-    cursor: pointer;
-    color: #8e98a7;
-    min-width: 53px;
-    height: 36px;
-    text-align: center;
-    border-bottom: solid 3px #fff;
-
-    &.active {
-      color: #000;
-      border-bottom: solid 3px #000;
-    }
-  }
+}
+.container ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 5px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.container li {
+  margin-right: 30px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #8e98a7;
+  min-width: 53px;
+  height: 36px;
+  text-align: center;
+  border-bottom: solid 3px #fff;
+}
+.container li.active {
+  color: #000;
+  border-bottom: solid 3px #000;
 }
 </style>
