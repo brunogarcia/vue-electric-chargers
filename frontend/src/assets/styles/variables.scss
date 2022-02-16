@@ -1,8 +1,23 @@
 :root {
-  --main-bg-color: #f2f2f2;
-  --dark-bg-color: #000000;
-  --color-white: #ffffff;
   --app-height: 100vh;
   --header-height: 64px;
   --footer-height: 54px;
+
+  --color-primary: #5599ff;
+  --color-danger: #ff6363;
+
+  --color-gray: #8e98a7;
+  --color-gray-light: #eee;
+
+  --color-light: #ffffff;
+  --color-dark: #000000;
+
+  --status-bg-charging: #d6dbff;
+  --status-color-charging: #2f46ff;
+  --status-bg-ready: #d7fff5;
+  --status-color-ready: #52b89e;
+  --status-bg-error: #ffe7e6;
+  --status-color-error: #ff5050;
+
+  --font-family-roboto: "Roboto", Helvetica, Arial, sans-serif;
 }

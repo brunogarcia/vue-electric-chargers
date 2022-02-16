@@ -42,7 +42,7 @@ export default defineComponent({
 
 <style scoped>
 .button {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: var(--font-family-roboto);
   font-weight: 500;
   border: 0;
   cursor: pointer;
@@ -52,9 +52,9 @@ export default defineComponent({
   background-color: transparent;
 }
 .button--primary {
-  color: #5599ff;
+  color: var(--color-primary);
 }
 .button--danger {
-  color: #ff6363;
+  color: var(--color-danger);
 }
 </style>

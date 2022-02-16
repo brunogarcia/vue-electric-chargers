@@ -22,7 +22,7 @@ export default defineComponent({
 <style scoped>
 .home-container {
   margin-top: 65px;
-  background-color: #fff;
+  background-color: var(--color-light);
   border-radius: 5px;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
 }

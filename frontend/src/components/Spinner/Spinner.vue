@@ -26,7 +26,7 @@ export default defineComponent({
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border-left-color: #09f;
+  border-left-color: var(--color-primary);
   animation: spin 1s ease infinite;
 }
 

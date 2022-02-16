@@ -74,7 +74,7 @@ body,
 html {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: var(--font-family-roboto);
   font-weight: 500;
 }
 
@@ -92,7 +92,7 @@ html {
 
 .app {
   align-items: center;
-  background-color: var(--main-bg-color);
+  background-color: var(--color-gray-light);
   display: flex;
   flex-direction: column;
   height: var(--app-height);
@@ -119,13 +119,13 @@ html {
   main {
     flex: 1;
     padding-bottom: 50px;
-    background-color: var(--main-bg-color);
+    background-color: var(--color-gray-light);
   }
 
   footer {
     flex: 0 0 var(--footer-height);
     a {
-      color: var(--color-white);
+      color: var(--color-light);
       text-decoration: none;
     }
     .footer--nav {
@@ -137,8 +137,8 @@ html {
 
   header,
   footer {
-    background-color: var(--dark-bg-color);
-    color: var(--color-white);
+    background-color: var(--color-dark);
+    color: var(--color-light);
     font-size: 20px;
     line-height: 28px;
   }

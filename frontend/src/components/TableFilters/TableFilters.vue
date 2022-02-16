@@ -52,7 +52,7 @@ export default defineComponent({
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  background-color: #fff;
+  background-color: var(--color-light);
   border-radius: 5px;
   list-style-type: none;
   margin: 0;
@@ -62,14 +62,14 @@ export default defineComponent({
   margin-right: 30px;
   text-transform: uppercase;
   cursor: pointer;
-  color: #8e98a7;
+  color: var(--color-gray);
   min-width: 53px;
   height: 36px;
   text-align: center;
-  border-bottom: solid 3px #fff;
+  border-bottom: solid 3px var(--color-light);
 }
 .table-filters-container li.active {
-  color: #000;
-  border-bottom: solid 3px #000;
+  color: var(--color-dark);
+  border-bottom: solid 3px var(--color-dark);
 }
 </style>

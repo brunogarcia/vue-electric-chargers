@@ -67,10 +67,10 @@ export default defineComponent({
 
 .table-container table {
   width: 100%;
-  color: #8e98a7;
-  background-color: #fff;
+  color: var(--color-gray);
+  background-color: var(--color-light);
   border-collapse: collapse;
-  border-top: 1px solid #ededed;
+  border-top: 1px solid var(--color-gray-light);
   overflow-x: auto;
 }
 .table-container table thead th {
@@ -81,6 +81,6 @@ export default defineComponent({
 }
 
 .table-container table tbody tr:nth-child(odd) {
-  background: #fbfbfb;
+  background: var(--color-gray-light);
 }
 </style>

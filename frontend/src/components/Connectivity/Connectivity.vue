@@ -47,7 +47,7 @@ export default defineComponent({
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
-  color: #8e98a7;
+  color: var(--color-gray);
   text-transform: capitalize;
   margin-left: 5px;
 }
