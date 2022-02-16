@@ -65,14 +65,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-:root {
-  --main-bg-color: #f2f2f2;
-  --dark-bg-color: #000000;
-  --color-white: #ffffff;
-  --app-height: 100vh;
-  --header-height: 64px;
-  --footer-height: 54px;
-}
+@import "@/assets/styles/variables";
 
 body,
 html {
@@ -82,13 +75,13 @@ html {
   font-weight: 500;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: var(--mobile-breakpoint)) {
   .hide-large {
     display: none;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: var(--mobile-breakpoint)) {
   .hide-small {
     display: none;
   }
