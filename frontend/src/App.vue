@@ -1,6 +1,7 @@
 <template>
   <MainLayout>
-    <router-view v-if="!loading" />
+    <Spinner v-if="loading" />
+    <router-view v-else />
   </MainLayout>
 </template>
 
@@ -9,12 +10,14 @@ import { defineComponent } from "vue";
 import useAppInit from "@/composables/useAppInit";
 import useLoading from "@/composables/useLoading";
 import MainLayout from "@/layouts/MainLayout.vue";
+import Spinner from "@/components/Spinner/Spinner.vue";
 
 export default defineComponent({
   name: "App",
 
   components: {
     MainLayout,
+    Spinner,
   },
 
   setup() {
