@@ -19,7 +19,11 @@
     {{ getDateformated(charger.manufacturedDate) }}
   </td>
   <td data-label="Action">
-    <Button label="View Session" @click="onViewSession" />
+    <Button
+      :style="ButtonStyle.Primary"
+      label="View Session"
+      @click="onViewSession"
+    />
     <Button :style="ButtonStyle.Danger" label="Delete" @click="onDelete" />
   </td>
 </template>

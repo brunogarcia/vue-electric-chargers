@@ -17,7 +17,7 @@ export default defineComponent({
     },
     style: {
       type: String as PropType<ButtonStyle>,
-      default: "primary",
+      default: ButtonStyle.Primary,
     },
   },
 
