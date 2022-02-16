@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="home-container">
     <TableFilters />
     <Table />
   </div>
@@ -20,7 +20,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.container {
+.home-container {
   margin-top: 65px;
   background-color: #fff;
   border-radius: 5px;

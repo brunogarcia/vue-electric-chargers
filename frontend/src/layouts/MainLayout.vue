@@ -16,7 +16,9 @@
       </div>
     </header>
     <main>
-      <slot />
+      <div class="section">
+        <slot />
+      </div>
     </main>
     <footer>
       <div class="section">
@@ -75,13 +77,13 @@ html {
   font-weight: 500;
 }
 
-@media screen and (min-width: var(--mobile-breakpoint)) {
+@media screen and (min-width: 640px) {
   .hide-large {
     display: none;
   }
 }
 
-@media screen and (max-width: var(--mobile-breakpoint)) {
+@media screen and (max-width: 640px) {
   .hide-small {
     display: none;
   }

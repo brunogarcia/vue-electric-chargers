@@ -1,8 +1,6 @@
 <template>
   <MainLayout>
-    <div class="section" v-if="!loading">
-      <router-view />
-    </div>
+    <router-view v-if="!loading" />
   </MainLayout>
 </template>
 

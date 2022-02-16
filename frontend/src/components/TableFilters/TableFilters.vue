@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="table-filters-container">
     <ul>
       <li
         v-for="item in tableFilters()"
@@ -44,10 +44,10 @@ export default defineComponent({
 });
 </script>
 <style scoped>
-.container {
+.table-filters-container {
   padding-top: 20px;
 }
-.container ul {
+.table-filters-container ul {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -58,7 +58,7 @@ export default defineComponent({
   margin: 0;
   padding: 0;
 }
-.container li {
+.table-filters-container li {
   margin-right: 30px;
   text-transform: uppercase;
   cursor: pointer;
@@ -68,7 +68,7 @@ export default defineComponent({
   text-align: center;
   border-bottom: solid 3px #fff;
 }
-.container li.active {
+.table-filters-container li.active {
   color: #000;
   border-bottom: solid 3px #000;
 }

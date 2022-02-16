@@ -1,5 +1,5 @@
 <template>
-  <table class="container">
+  <table class="table-container">
     <thead>
       <tr>
         <th
@@ -42,21 +42,21 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.container {
+.table-container {
   width: 100%;
   color: #8e98a7;
   background-color: #fff;
   border-collapse: collapse;
   border-top: 1px solid #ededed;
 }
-.container table thead th {
+.table-container thead th {
   font-weight: 500;
   text-align: left;
   padding-top: 20px;
   padding-bottom: 10px;
 }
 
-.container table tbody tr:nth-child(odd) {
+.table-container tbody tr:nth-child(odd) {
   background: #fbfbfb;
 }
 </style>
