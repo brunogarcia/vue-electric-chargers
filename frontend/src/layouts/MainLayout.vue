@@ -68,6 +68,7 @@ export default defineComponent({
 
 <style lang="scss">
 @import "@/assets/styles/variables";
+@import "@/assets/styles/mixins";
 
 body,
 html {
@@ -77,14 +78,14 @@ html {
   font-weight: 500;
 }
 
-@media screen and (min-width: 640px) {
-  .hide-large {
+@include for-phone-only {
+  .hide-small {
     display: none;
   }
 }
 
-@media screen and (max-width: 640px) {
-  .hide-small {
+@include for-tablet-portrait-up {
+  .hide-large {
     display: none;
   }
 }

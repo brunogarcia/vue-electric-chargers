@@ -43,9 +43,10 @@ export default defineComponent({
   },
 });
 </script>
+<style lang="scss">
+@import "@/assets/styles/mixins";
 
-<style scoped>
-@media screen and (max-width: 1024px) {
+@include for-desktop-down {
   .table-container table thead {
     border: none;
     clip: rect(0 0 0 0);

@@ -72,16 +72,10 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.charger--image {
-  text-align: center;
-}
-td {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
+<style lang="scss">
+@import "@/assets/styles/mixins";
 
-@media screen and (max-width: 1024px) {
+@include for-desktop-down {
   td {
     display: block;
     font-size: 0.8em;
@@ -98,5 +92,14 @@ td {
   td:last-child {
     border-bottom: 0;
   }
+}
+
+.charger--image {
+  text-align: center;
+}
+
+td {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 </style>
