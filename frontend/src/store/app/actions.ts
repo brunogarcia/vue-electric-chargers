@@ -18,8 +18,6 @@ const actions: ActionTree<StateRoot, StateRoot> & AppActions = {
       commit(MUTATION.SAVE_CHARGERS, data);
       commit(MUTATION.END_LOADING);
     } catch (error) {
-      // TODO: send to error monitoring service (eg: Sentry)
-      console.log(error);
       throw new Error(
         "Sorry, there was an issue when we have tried to get the chargers"
       );
@@ -40,8 +38,6 @@ const actions: ActionTree<StateRoot, StateRoot> & AppActions = {
       commit(MUTATION.SAVE_TABLE_FILTER, payload);
       commit(MUTATION.END_LOADING);
     } catch (error) {
-      // TODO: send to error monitoring service (eg: Sentry)
-      console.log(error);
       throw new Error(
         "Sorry, there was an issue when we have tried to set the table filter"
       );
