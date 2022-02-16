@@ -2,17 +2,23 @@
   <td class="charger--image">
     <img :src="getChargerImage(charger.type)" />
   </td>
-  <td>
+  <td data-label="Device">
     {{ charger.type }}<br />
     {{ charger.serialNumber }}
   </td>
-  <td><Connectivity :connectivityType="charger.connectivityType" /></td>
-  <td><Status :chargerStatus="charger.status" /></td>
-  <td>{{ getChargingTime(charger.chargingTime) }}</td>
-  <td>{{ charger.energySupplied }}</td>
-  <td>{{ charger.currentCharging }}</td>
-  <td>{{ getDateformated(charger.manufacturedDate) }}</td>
-  <td>
+  <td data-label="Connectivity">
+    <Connectivity :connectivityType="charger.connectivityType" />
+  </td>
+  <td data-label="Status"><Status :chargerStatus="charger.status" /></td>
+  <td data-label="Charging Time">
+    {{ getChargingTime(charger.chargingTime) }}
+  </td>
+  <td data-label="Energy Supplied">{{ charger.energySupplied || "n.a." }}</td>
+  <td data-label="Charging Current">{{ charger.currentCharging || "n.a." }}</td>
+  <td data-label="Manufactured Date">
+    {{ getDateformated(charger.manufacturedDate) }}
+  </td>
+  <td data-label="Action">
     <Button label="View Session" @click="onViewSession" />
     <Button :style="ButtonStyle.Danger" label="Delete" @click="onDelete" />
   </td>
@@ -73,5 +79,24 @@ export default defineComponent({
 td {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  td {
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+    padding: 10px;
+  }
+
+  td::before {
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+  }
+
+  td:last-child {
+    border-bottom: 0;
+  }
 }
 </style>

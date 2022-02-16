@@ -1,6 +1,6 @@
 export default function getChargingTime(chargingTime: number): string {
   if (!chargingTime) {
-    return "";
+    return "n.a.";
   }
 
   const minutes = Math.floor((chargingTime / (1000 * 60)) % 60);
