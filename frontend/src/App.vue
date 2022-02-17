@@ -10,7 +10,7 @@ import { defineComponent } from "vue";
 import useAppInit from "@/composables/useAppInit";
 import useLoading from "@/composables/useLoading";
 import MainLayout from "@/layouts/MainLayout.vue";
-import Spinner from "@/components/Spinner/Spinner.vue";
+import Spinner from "@/design-system/Spinner/Spinner.vue";
 
 export default defineComponent({
   name: "App",

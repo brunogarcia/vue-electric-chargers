@@ -26,7 +26,7 @@
 import { defineComponent } from "vue";
 import { EventType } from "@/types";
 import closeIcon from "@/assets/icons/close.svg";
-import Button from "@/components/Button/Button.vue";
+import Button from "@/design-system/Button/Button.vue";
 
 export default defineComponent({
   name: "Modal",

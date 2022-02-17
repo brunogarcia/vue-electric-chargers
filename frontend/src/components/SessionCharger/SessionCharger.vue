@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Modal from "@/components/Modal/Modal.vue";
+import Modal from "@/design-system/Modal/Modal.vue";
 
 export default defineComponent({
   name: "SessionCharger",

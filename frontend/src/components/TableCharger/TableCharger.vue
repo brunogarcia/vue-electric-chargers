@@ -38,7 +38,7 @@ import getChargerImage from "@/utils/getChargerImage";
 import getChargingTime from "@/utils/getChargingTime";
 
 import Status from "@/components/Status/Status.vue";
-import Button from "@/components/Button/Button.vue";
+import Button from "@/components/Button/core/Button.vue";
 import Connectivity from "@/components/Connectivity/Connectivity.vue";
 
 export default defineComponent({
