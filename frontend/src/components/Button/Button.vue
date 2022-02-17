@@ -1,19 +1,20 @@
 <template>
   <button type="button" :class="classes" @click="onClick">
-    {{ label }}
+    <slot name="icon" />
+    <span v-if="label">{{ label }}</span>
   </button>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive, computed, PropType } from "vue";
-import { ButtonStyle } from "@/types";
+import { ButtonStyle, EventType } from "@/types";
 
 export default defineComponent({
   name: "Button",
   props: {
     label: {
       type: String as PropType<string>,
-      required: true,
+      default: "",
     },
     style: {
       type: String as PropType<ButtonStyle>,
@@ -21,7 +22,7 @@ export default defineComponent({
     },
   },
 
-  emits: ["click"],
+  emits: [EventType.CLICK],
 
   setup(props, { emit }) {
     props = reactive(props);
@@ -33,7 +34,7 @@ export default defineComponent({
         "button--danger": props.style === "danger",
       })),
       onClick() {
-        emit("click");
+        emit(EventType.CLICK);
       },
     };
   },

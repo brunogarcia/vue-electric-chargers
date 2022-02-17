@@ -38,3 +38,10 @@ export enum ButtonStyle {
   Primary = "primary",
   Danger = "danger",
 }
+
+export enum EventType {
+  CLICK = "click",
+  HIDE_MODAL = "hide-modal",
+  VIEW_SESSION = "view-session",
+  DELETE = "view-session",
+}
