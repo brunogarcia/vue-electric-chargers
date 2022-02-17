@@ -6,12 +6,14 @@ describe("Button.vue", () => {
   it("renders label and primary style", async () => {
     const label = "View session";
     const style = ButtonStyle.Primary;
-    const { getByText } = render(Button, {
+    const { getByText, getByRole } = render(Button, {
       props: { label, style },
     });
 
-    const button = getByText("View session");
+    const text = getByText("View session");
+    const button = getByRole("button");
 
+    expect(text).toBeInTheDocument();
     expect(button).toBeInTheDocument();
     expect((button as HTMLButtonElement).className).toBe(
       "button button--primary"
@@ -21,12 +23,14 @@ describe("Button.vue", () => {
   it("renders label and danger style", async () => {
     const label = "Delete";
     const style = ButtonStyle.Danger;
-    const { getByText } = render(Button, {
+    const { getByText, getByRole } = render(Button, {
       props: { label, style },
     });
 
-    const button = getByText("Delete");
+    const text = getByText("Delete");
+    const button = getByRole("button");
 
+    expect(text).toBeInTheDocument();
     expect(button).toBeInTheDocument();
     expect((button as HTMLButtonElement).className).toBe(
       "button button--danger"
@@ -35,13 +39,9 @@ describe("Button.vue", () => {
 
   it("emitts the click event", async () => {
     const expectedClick = ["click", [[]]];
+    const { getByRole, emitted } = render(Button);
 
-    const label = "Example";
-    const { getByText, emitted } = render(Button, {
-      props: { label },
-    });
-
-    const button = getByText("Example");
+    const button = getByRole("button");
     await fireEvent.click(button);
 
     const [clickEventEmitted] = Object.entries(emitted());

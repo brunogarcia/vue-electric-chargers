@@ -30,9 +30,10 @@ export default defineComponent({
     return {
       classes: computed(() => ({
         button: true,
-        "button--primary": props.style === "primary",
-        "button--danger": props.style === "danger",
+        "button--primary": props.style === ButtonStyle.Primary,
+        "button--danger": props.style === ButtonStyle.Danger,
       })),
+
       onClick() {
         emit(EventType.CLICK);
       },
