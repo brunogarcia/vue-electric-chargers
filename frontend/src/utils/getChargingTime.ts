@@ -1,4 +1,4 @@
-export default function getChargingTime(chargingTime: number): string {
+export default function getChargingTime(chargingTime: number | null): string {
   if (!chargingTime) {
     return "n.a.";
   }

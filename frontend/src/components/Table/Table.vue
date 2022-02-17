@@ -15,30 +15,49 @@
       </thead>
       <tbody>
         <tr v-for="item in chargers" :key="item.id" data-testid="table-charger">
-          <TableCharger :charger="item" />
+          <TableCharger :charger="item" @view-session="onViewSession" />
         </tr>
       </tbody>
     </table>
   </div>
+  <SessionCharger
+    v-if="isModalDisplayed"
+    :chargerId="currentSessionChargerId"
+    @hide-modal="hideModal"
+  />
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { ref, defineComponent } from "vue";
+import useModal from "@/composables/useModal";
 import useChargers from "@/composables/useChargers";
 import tableHeader from "@/components/Table/utils/header";
 import TableCharger from "@/components/TableCharger/TableCharger.vue";
+import SessionCharger from "@/components/SessionCharger/SessionCharger.vue";
 
 export default defineComponent({
   name: "Table",
   components: {
     TableCharger,
+    SessionCharger,
   },
   setup() {
+    const currentSessionChargerId = ref<number | null>(null);
     const { chargers } = useChargers();
+    const { isModalDisplayed, displayModal, hideModal } = useModal();
+
+    const onViewSession = (chargerId: number) => {
+      currentSessionChargerId.value = chargerId;
+      displayModal();
+    };
 
     return {
       chargers,
+      hideModal,
       tableHeader,
+      onViewSession,
+      isModalDisplayed,
+      currentSessionChargerId,
     };
   },
 });

@@ -31,7 +31,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 
-import { Charger, ButtonStyle } from "@/types";
+import { Charger, ButtonStyle, EventType } from "@/types";
 
 import getDateformated from "@/utils/getDateformated";
 import getChargerImage from "@/utils/getChargerImage";
@@ -55,13 +55,15 @@ export default defineComponent({
     Button,
   },
 
+  emits: [EventType.VIEW_SESSION, EventType.DELETE],
+
   setup(props, { emit }) {
     const onViewSession = () => {
-      emit("view-session", props.charger.id);
+      emit(EventType.VIEW_SESSION, props.charger.id);
     };
 
     const onDelete = () => {
-      emit("delete", props.charger.id);
+      emit(EventType.DELETE, props.charger.id);
     };
 
     return {
@@ -69,8 +71,8 @@ export default defineComponent({
       getDateformated,
       getChargerImage,
       getChargingTime,
-      onViewSession,
       onDelete,
+      onViewSession,
     };
   },
 });
