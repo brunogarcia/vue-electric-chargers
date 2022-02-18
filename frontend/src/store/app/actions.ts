@@ -1,7 +1,13 @@
-import { ActionContext, ActionTree } from "vuex";
+import { ActionTree } from "vuex";
 import http from "@/http";
 import { ChargerStatusName } from "@/types";
-import { ACTIONS, MUTATION, AppActions, StateRoot } from "@/store/store.types";
+import {
+  ACTIONS,
+  MUTATION,
+  AppActions,
+  StateRoot,
+  AugmentedActionContext,
+} from "@/store/store.types";
 
 const actions: ActionTree<StateRoot, StateRoot> & AppActions = {
   /**
@@ -9,9 +15,7 @@ const actions: ActionTree<StateRoot, StateRoot> & AppActions = {
    *
    * @param {ActionContext} context - Vuex Action Context
    */
-  [ACTIONS.FETCH_CHARGERS]: async ({
-    commit,
-  }: ActionContext<StateRoot, StateRoot>) => {
+  [ACTIONS.FETCH_CHARGERS]: async ({ commit }: AugmentedActionContext) => {
     try {
       commit(MUTATION.START_LOADING);
       const data = await http.fetchChargers();
@@ -31,7 +35,7 @@ const actions: ActionTree<StateRoot, StateRoot> & AppActions = {
    * @param {ChargerStatusName} payload - Table filter
    */
   [ACTIONS.SET_TABLE_FILTER]: async (
-    { commit }: ActionContext<StateRoot, StateRoot>,
+    { commit }: AugmentedActionContext,
     payload: ChargerStatusName
   ) => {
     try {
@@ -50,9 +54,7 @@ const actions: ActionTree<StateRoot, StateRoot> & AppActions = {
    *
    * @param {ActionContext} context - Vuex Action Context
    */
-  [ACTIONS.TOGGLE_MODAL]: async ({
-    commit,
-  }: ActionContext<StateRoot, StateRoot>) => {
+  [ACTIONS.TOGGLE_MODAL]: async ({ commit }: AugmentedActionContext) => {
     try {
       commit(MUTATION.TOGGLE_MODAL);
     } catch (error) {

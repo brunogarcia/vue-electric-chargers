@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import { Charger } from "@/types";
 
 enum Endpoints {
@@ -10,10 +10,10 @@ enum Endpoints {
  *
  * @returns {Charger[]} Charger list
  */
-async function fetchChargers(): Promise<AxiosResponse<Charger[]>> {
+async function fetchChargers(): Promise<Charger[]> {
   try {
-    const response = await axios.get(Endpoints.Chargers);
-    return response.data;
+    const { data } = await axios.get(Endpoints.Chargers);
+    return data;
   } catch (error) {
     // TODO: send to error monitoring service (eg: Sentry)
     console.error(error);

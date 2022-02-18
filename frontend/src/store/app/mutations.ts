@@ -1,5 +1,4 @@
 import { MutationTree } from "vuex";
-
 import { Charger, ChargerStatusName } from "@/types";
 import { StateRoot } from "@/store/store.types";
 import { AppMutations, MUTATION } from "@/store/store.types";

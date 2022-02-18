@@ -29,7 +29,7 @@ export enum GETTERS {
   MODAL_VISIBILITY = "MODAL_VISIBILITY",
 }
 
-type AugmentedActionContext = {
+export type AugmentedActionContext = {
   commit<K extends keyof AppMutations>(
     key: K,
     payload?: Parameters<AppMutations[K]>[1]
