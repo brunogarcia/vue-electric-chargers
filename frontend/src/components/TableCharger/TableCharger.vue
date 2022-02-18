@@ -51,13 +51,11 @@ export default defineComponent({
     },
   },
   components: {
-    Connectivity,
     Status,
     Button,
+    Connectivity,
   },
-
   emits: [EventType.VIEW_SESSION, EventType.DELETE],
-
   setup(props, { emit }) {
     const data = getChargeData(props.charger);
 
@@ -85,7 +83,7 @@ export default defineComponent({
 @include for-desktop-down {
   td {
     display: block;
-    font-size: 0.8em;
+    font-size: 12px;
     text-align: right;
     padding: 10px;
   }

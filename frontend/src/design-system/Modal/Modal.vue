@@ -6,7 +6,7 @@
           <div class="modal-wrapper">
             <div class="modal-container">
               <div class="modal-header">
-                <p id="modalTitle">{{ title }}</p>
+                <p id="modalTitle" class="font-size-large">{{ title }}</p>
                 <Button @click="hideModal">
                   <template v-slot:icon>
                     <img :src="closeIcon" alt="close" />
@@ -82,11 +82,11 @@ export default defineComponent({
 }
 
 .modal-container {
-  width: 300px;
+  width: 460px;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
-  border-radius: 2px;
+  border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
   font-family: Helvetica, Arial, sans-serif;
@@ -94,6 +94,7 @@ export default defineComponent({
 
 .modal-header {
   display: flex;
+  justify-content: space-between;
 }
 
 .modal-body {

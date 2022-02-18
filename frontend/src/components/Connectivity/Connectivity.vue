@@ -1,7 +1,9 @@
 <template>
-  <div class="connectivity">
+  <div class="connectivity-container">
     <img :src="icon" :alt="`icon ${name}`" />
-    <span class="connectivy--name">{{ name }}</span>
+    <span class="connectivy--name font-size-medium color-gray">
+      {{ name }}
+    </span>
   </div>
 </template>
 
@@ -42,12 +44,6 @@ export default defineComponent({
 
 <style scoped>
 .connectivy--name {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  color: var(--color-gray);
   text-transform: capitalize;
   margin-left: 5px;
 }

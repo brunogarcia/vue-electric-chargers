@@ -69,6 +69,7 @@ export default defineComponent({
 <style lang="scss">
 @import "@/assets/styles/variables";
 @import "@/assets/styles/mixins";
+@import "@/assets/styles/common";
 
 body,
 html {

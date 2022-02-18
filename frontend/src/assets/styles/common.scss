@@ -1,0 +1,65 @@
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.font-size-xsmall {
+  font-family: var(--font-family-roboto);;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 10px;
+}
+
+.font-size-small {
+  font-family: var(--font-family-roboto);;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 12px;
+}
+
+.font-size-medium {
+  font-family: var(--font-family-roboto);;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.font-size-large {
+  font-family: var(--font-family-roboto);;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.color-dark {
+  color: var(--color-dark);
+}
+
+.color-gray {
+  color: var(--color-gray);
+}
+
+.color-charging {
+  color: var(--status-color-charging);
+}
+
+.color-ready {
+  color: var(--status-color-ready);
+}
+
+.color-error {
+  color: var(--status-color-error);
+}
+
+.bg-charging {
+  background-color: var(--status-bg-charging);
+}
+
+.bg-ready {
+  background-color: var(--status-bg-ready);
+}
+
+.bg-error {
+  background-color: var(--status-bg-error);
+}
