@@ -48,25 +48,26 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .resume-charger--container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
 
-  .resume-charger--first {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
+.resume-charger--first {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .resume-charger--text {
-    margin-left: 15px;
-    p {
-      margin-bottom: 3px;
-    }
-  }
+.resume-charger--text {
+  margin-left: 15px;
+}
+
+.resume-charger--text p {
+  margin-bottom: 3px;
 }
 </style>

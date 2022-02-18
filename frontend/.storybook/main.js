@@ -9,6 +9,7 @@ module.exports = {
     "@storybook/addon-essentials",
   ],
   "framework": "@storybook/vue3",
+  "staticDirs": ['../public'],
 
   webpackFinal: async (config) => {
     config.resolve.alias = {
