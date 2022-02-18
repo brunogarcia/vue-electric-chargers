@@ -1,3 +1,5 @@
+type Modify<T, R> = Omit<T, keyof R> & R;
+
 export enum ConnectivityType {
   Wifi = "wifi",
   Ethernet = "ethernet",
@@ -32,6 +34,19 @@ export interface Charger {
   status: ChargerStatus;
   manufacturedDate: string;
   connectivityType: ConnectivityType;
+}
+
+type ChargerUpdated = Modify<
+  Charger,
+  {
+    chargingTime: string;
+    energySupplied: string | number;
+    currentCharging: string | number;
+  }
+>;
+
+export interface AugmentedCharger extends ChargerUpdated {
+  image: string;
 }
 
 export enum ButtonStyle {

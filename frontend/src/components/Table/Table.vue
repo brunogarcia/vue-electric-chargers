@@ -20,36 +20,54 @@
       </tbody>
     </table>
   </div>
-  <SessionCharger
+  <ModalCharger
     v-if="isModalDisplayed"
-    :chargerId="currentSessionChargerId"
+    :charger="currentSessionCharger"
     @hide-modal="toggleModal"
   />
 </template>
 
 <script lang="ts">
-import { ref, defineComponent } from "vue";
+import { ref, defineComponent, watch } from "vue";
+import { Charger } from "@/types";
 import useModal from "@/composables/useModal";
 import useChargers from "@/composables/useChargers";
 import tableHeader from "@/components/Table/utils/header";
 import TableCharger from "@/components/TableCharger/TableCharger.vue";
-import SessionCharger from "@/components/SessionCharger/SessionCharger.vue";
+import ModalCharger from "@/components/ModalCharger/ModalCharger.vue";
 
 export default defineComponent({
   name: "Table",
   components: {
     TableCharger,
-    SessionCharger,
+    ModalCharger,
   },
   setup() {
+    const currentSessionCharger = ref<Charger | null | undefined>(null);
     const currentSessionChargerId = ref<number | null>(null);
+
     const { chargers } = useChargers();
     const { isModalDisplayed, toggleModal } = useModal();
 
     const onViewSession = (chargerId: number) => {
       currentSessionChargerId.value = chargerId;
-      toggleModal();
     };
+
+    watch(
+      () => currentSessionChargerId.value,
+      (chargerId) => {
+        if (chargerId) {
+          currentSessionCharger.value = chargers.value.find(
+            (charger: Charger) => charger.id === chargerId
+          );
+          if (currentSessionCharger.value) {
+            toggleModal();
+          }
+        } else {
+          currentSessionCharger.value = null;
+        }
+      }
+    );
 
     return {
       chargers,
@@ -57,7 +75,7 @@ export default defineComponent({
       tableHeader,
       onViewSession,
       isModalDisplayed,
-      currentSessionChargerId,
+      currentSessionCharger,
     };
   },
 });

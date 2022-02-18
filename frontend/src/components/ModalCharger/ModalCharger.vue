@@ -1,25 +1,28 @@
 <template>
   <Modal title="Current Session">
     <template v-slot:body>
-      <p>Hi! {{ chargerId }}</p>
+      <ResumeCharger :charger="charger" />
     </template>
   </Modal>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
+import { Charger } from "@/types";
 import Modal from "@/design-system/Modal/Modal.vue";
+import ResumeCharger from "@/components/ResumeCharger/ResumeCharger.vue";
 
 export default defineComponent({
-  name: "SessionCharger",
+  name: "ModalCharger",
   props: {
-    chargerId: {
-      type: Number,
+    charger: {
+      type: Object as PropType<Charger>,
       required: true,
     },
   },
   components: {
     Modal,
+    ResumeCharger,
   },
 });
 </script>

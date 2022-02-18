@@ -1,22 +1,28 @@
 <template>
   <td class="charger--image">
-    <img :src="getChargerImage(charger.type)" />
+    <img :src="data.image" />
   </td>
   <td data-label="Device">
-    {{ charger.type }}<br />
-    {{ charger.serialNumber }}
+    {{ data.type }}<br />
+    {{ data.serialNumber }}
   </td>
   <td data-label="Connectivity">
-    <Connectivity :connectivityType="charger.connectivityType" />
+    <Connectivity :connectivityType="data.connectivityType" />
   </td>
-  <td data-label="Status"><Status :chargerStatus="charger.status" /></td>
+  <td data-label="Status">
+    <Status :chargerStatus="data.status" />
+  </td>
   <td data-label="Charging Time">
-    {{ getChargingTime(charger.chargingTime) }}
+    {{ data.chargingTime }}
   </td>
-  <td data-label="Energy Supplied">{{ charger.energySupplied || "n.a." }}</td>
-  <td data-label="Charging Current">{{ charger.currentCharging || "n.a." }}</td>
+  <td data-label="Energy Supplied">
+    {{ data.energySupplied }}
+  </td>
+  <td data-label="Charging Current">
+    {{ data.currentCharging }}
+  </td>
   <td data-label="Manufactured Date">
-    {{ getDateformated(charger.manufacturedDate) }}
+    {{ data.manufacturedDate }}
   </td>
   <td data-label="Action">
     <Button
@@ -30,13 +36,8 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-
+import getChargeData from "@/utils/getChargeData";
 import { Charger, ButtonStyle, EventType } from "@/types";
-
-import getDateformated from "@/utils/getDateformated";
-import getChargerImage from "@/utils/getChargerImage";
-import getChargingTime from "@/utils/getChargingTime";
-
 import Status from "@/components/Status/Status.vue";
 import Button from "@/design-system/Button/Button.vue";
 import Connectivity from "@/components/Connectivity/Connectivity.vue";
@@ -58,6 +59,8 @@ export default defineComponent({
   emits: [EventType.VIEW_SESSION, EventType.DELETE],
 
   setup(props, { emit }) {
+    const data = getChargeData(props.charger);
+
     const onViewSession = () => {
       emit(EventType.VIEW_SESSION, props.charger.id);
     };
@@ -67,10 +70,8 @@ export default defineComponent({
     };
 
     return {
+      data,
       ButtonStyle,
-      getDateformated,
-      getChargerImage,
-      getChargingTime,
       onDelete,
       onViewSession,
     };
