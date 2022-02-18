@@ -11,7 +11,9 @@ describe("Status.vue", () => {
     const status = getByText("ready");
 
     expect(status).toBeInTheDocument();
-    expect((status as HTMLDivElement).className).toBe("status status--ready");
+    expect((status as HTMLDivElement).className).toBe(
+      "status font-size-xsmall color-dark bg-ready color-ready"
+    );
   });
 
   it("renders charging status", () => {
@@ -24,7 +26,7 @@ describe("Status.vue", () => {
 
     expect(status).toBeInTheDocument();
     expect((status as HTMLDivElement).className).toBe(
-      "status status--charging"
+      "status font-size-xsmall color-dark bg-charging color-charging"
     );
   });
 
@@ -37,7 +39,9 @@ describe("Status.vue", () => {
     const status = getByText("error");
 
     expect(status).toBeInTheDocument();
-    expect((status as HTMLDivElement).className).toBe("status status--error");
+    expect((status as HTMLDivElement).className).toBe(
+      "status font-size-xsmall color-dark bg-error color-error"
+    );
   });
 
   it("renders unknown status", () => {
@@ -49,6 +53,8 @@ describe("Status.vue", () => {
     const status = getByText("unknown");
 
     expect(status).toBeInTheDocument();
-    expect((status as HTMLDivElement).className).toBe("status");
+    expect((status as HTMLDivElement).className).toBe(
+      "status font-size-xsmall color-dark"
+    );
   });
 });
