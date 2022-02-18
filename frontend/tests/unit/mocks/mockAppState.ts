@@ -1,10 +1,11 @@
 import { StateRoot } from "@/store/store.types";
 import { ConnectivityType, ChargerType, ChargerStatusName } from "@/types";
 
-export default function mockShoppingState(): StateRoot {
+export default function mockAppState(): StateRoot {
   return {
-    tableFilter: ChargerStatusName.All,
     loading: false,
+    isModalDisplayed: false,
+    tableFilter: ChargerStatusName.All,
     chargers: [
       {
         id: 1,

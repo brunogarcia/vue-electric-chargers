@@ -22,7 +22,7 @@ export default function useChargers(): ComposableChargers {
   const setChargerFilter = (filter: ChargerStatusName): Promise<void> =>
     store.dispatch(ACTIONS.SET_TABLE_FILTER, filter);
 
-  const chargersByFilter = () =>
+  const chargersByFilter = (): Charger[] =>
     store.getters[GETTERS.CHARGERS].filter((charger: Charger) =>
       isSameChargerStatus(charger.status, getChargerFilter.value)
     );
