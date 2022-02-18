@@ -23,6 +23,7 @@ const actions: ActionTree<StateRoot, StateRoot> & AppActions = {
       );
     }
   },
+
   /**
    * Set table filter
    *
@@ -40,6 +41,23 @@ const actions: ActionTree<StateRoot, StateRoot> & AppActions = {
     } catch (error) {
       throw new Error(
         "Sorry, there was an issue when we have tried to set the table filter"
+      );
+    }
+  },
+
+  /**
+   * Toggle modal
+   *
+   * @param {ActionContext} context - Vuex Action Context
+   */
+  [ACTIONS.TOGGLE_MODAL]: async ({
+    commit,
+  }: ActionContext<StateRoot, StateRoot>) => {
+    try {
+      commit(MUTATION.TOGGLE_MODAL);
+    } catch (error) {
+      throw new Error(
+        "Sorry, there was an issue when we have tried to update the modal visibility"
       );
     }
   },

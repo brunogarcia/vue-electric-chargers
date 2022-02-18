@@ -28,6 +28,14 @@ const getters: GetterTree<StateRoot, StateRoot> & AppGetters = {
    * @param {StateRoot} state - The root state
    */
   [GETTERS.LOADING]: (state: StateRoot): boolean => state.loading,
+
+  /**
+   * Modal visibility
+   *
+   * @param {StateRoot} state - The root state
+   */
+  [GETTERS.MODAL_VISIBILITY]: (state: StateRoot): boolean =>
+    state.isModalDisplayed,
 };
 
 export default getters;

@@ -6421,6 +6421,16 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
+focus-trap-vue@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/focus-trap-vue/-/focus-trap-vue-3.2.1.tgz#630023bb96bfe45ebcf2e817eee6eb28d4edf52b"
+
+focus-trap@^6.7.3:
+  version "6.7.3"
+  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-6.7.3.tgz#b5dc195b49c90001f08a63134471d1e6dd381ddd"
+  dependencies:
+    tabbable "^5.2.1"
+
 follow-redirects@^1.0.0, follow-redirects@^1.14.7:
   version "1.14.8"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.8.tgz#016996fb9a11a100566398b1c6839337d7bfa8fc"
@@ -12319,6 +12329,10 @@ symbol.prototype.description@^1.0.0:
 synchronous-promise@^2.0.15:
   version "2.0.15"
   resolved "https://registry.yarnpkg.com/synchronous-promise/-/synchronous-promise-2.0.15.tgz#07ca1822b9de0001f5ff73595f3d08c4f720eb8e"
+
+tabbable@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-5.2.1.tgz#e3fda7367ddbb172dcda9f871c0fdb36d1c4cd9c"
 
 table@^5.2.3:
   version "5.4.6"

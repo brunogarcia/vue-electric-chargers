@@ -1,23 +1,25 @@
 <template>
   <teleport to="body">
     <transition name="modal">
-      <div role="dialog" aria-labelledby="modalTitle" class="modal-mask">
-        <div class="modal-wrapper">
-          <div class="modal-container">
-            <div class="modal-header">
-              <p id="modalTitle">{{ title }}</p>
-              <Button @click="hideModal">
-                <template v-slot:icon>
-                  <img :src="closeIcon" alt="close" />
-                </template>
-              </Button>
-            </div>
-            <div class="modal-body">
-              <slot name="body" />
+      <focus-trap v-model:active="isModalDisplayed">
+        <div role="dialog" aria-labelledby="modalTitle" class="modal-mask">
+          <div class="modal-wrapper">
+            <div class="modal-container">
+              <div class="modal-header">
+                <p id="modalTitle">{{ title }}</p>
+                <Button @click="hideModal">
+                  <template v-slot:icon>
+                    <img :src="closeIcon" alt="close" />
+                  </template>
+                </Button>
+              </div>
+              <div class="modal-body">
+                <slot name="body" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </focus-trap>
     </transition>
   </teleport>
 </template>
@@ -25,6 +27,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { EventType } from "@/types";
+import useModal from "@/composables/useModal";
 import closeIcon from "@/assets/icons/close.svg";
 import Button from "@/design-system/Button/Button.vue";
 
@@ -49,9 +52,12 @@ export default defineComponent({
       emit(EventType.HIDE_MODAL);
     };
 
+    const { isModalDisplayed } = useModal();
+
     return {
       closeIcon,
       hideModal,
+      isModalDisplayed,
     };
   },
 });

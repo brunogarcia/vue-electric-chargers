@@ -23,7 +23,7 @@
   <SessionCharger
     v-if="isModalDisplayed"
     :chargerId="currentSessionChargerId"
-    @hide-modal="hideModal"
+    @hide-modal="toggleModal"
   />
 </template>
 
@@ -44,16 +44,16 @@ export default defineComponent({
   setup() {
     const currentSessionChargerId = ref<number | null>(null);
     const { chargers } = useChargers();
-    const { isModalDisplayed, displayModal, hideModal } = useModal();
+    const { isModalDisplayed, toggleModal } = useModal();
 
     const onViewSession = (chargerId: number) => {
       currentSessionChargerId.value = chargerId;
-      displayModal();
+      toggleModal();
     };
 
     return {
       chargers,
-      hideModal,
+      toggleModal,
       tableHeader,
       onViewSession,
       isModalDisplayed,

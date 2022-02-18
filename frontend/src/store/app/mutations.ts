@@ -17,6 +17,9 @@ const mutations: MutationTree<StateRoot> & AppMutations = {
   [MUTATION.END_LOADING](state: StateRoot) {
     state.loading = false;
   },
+  [MUTATION.TOGGLE_MODAL](state: StateRoot) {
+    state.isModalDisplayed = !state.isModalDisplayed;
+  },
 };
 
 export default mutations;

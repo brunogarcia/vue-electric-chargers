@@ -2,9 +2,10 @@ import { StateRoot } from "@/store/store.types";
 import { ChargerStatusName } from "@/types";
 
 const initialState: StateRoot = {
-  tableFilter: ChargerStatusName.All,
-  loading: true,
   chargers: [],
+  loading: true,
+  isModalDisplayed: false,
+  tableFilter: ChargerStatusName.All,
 };
 
 export default initialState;

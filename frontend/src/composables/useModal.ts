@@ -1,25 +1,23 @@
-import { ref, Ref } from "vue";
+import { computed, Ref } from "vue";
+import { useStore } from "@/store";
+import { ACTIONS, GETTERS } from "@/store/store.types";
 
 interface ComposableModal {
+  toggleModal: () => void;
   isModalDisplayed: Ref<boolean>;
-  hideModal: () => void;
-  displayModal: () => void;
 }
 
 export default function useModal(): ComposableModal {
-  const isModalDisplayed = ref(false);
+  const store = useStore();
 
-  const hideModal = () => {
-    isModalDisplayed.value = false;
-  };
+  const toggleModal = (): Promise<void> => store.dispatch(ACTIONS.TOGGLE_MODAL);
 
-  const displayModal = () => {
-    isModalDisplayed.value = true;
-  };
+  const isModalDisplayed = computed(
+    (): boolean => store.getters[GETTERS.MODAL_VISIBILITY]
+  );
 
   return {
+    toggleModal,
     isModalDisplayed,
-    hideModal,
-    displayModal,
   };
 }
