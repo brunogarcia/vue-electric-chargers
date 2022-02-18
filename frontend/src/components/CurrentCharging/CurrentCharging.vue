@@ -1,7 +1,7 @@
 <template>
   <div class="current-charging--container">
-    <img :src="WifiIcon" :alt="Wifi" />
-    <span class="current-charging--name color-gray font-size-medium">
+    <img :src="WifiIcon" alt="Wifi" />
+    <span class="current-charging--data color-gray font-size-medium">
       {{ currentCharging }}%
     </span>
   </div>
@@ -28,7 +28,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.current-charging--name {
+.current-charging--data {
   margin-left: 5px;
 }
 </style>

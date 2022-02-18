@@ -53,7 +53,6 @@ export default defineComponent({
   border-radius: 12px;
   text-align: center;
   text-transform: uppercase;
-  background-color: var(--color-gray-light);
   min-width: 67px;
 }
 </style>

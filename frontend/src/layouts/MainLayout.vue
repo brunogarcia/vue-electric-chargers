@@ -63,6 +63,18 @@ export default defineComponent({
 @import "@/assets/styles/mixins";
 @import "@/assets/styles/common";
 
+@include for-phone-only {
+  .hide-small {
+    display: none;
+  }
+}
+
+@include for-tablet-portrait-up {
+  .hide-large {
+    display: none;
+  }
+}
+
 .app {
   align-items: center;
   background-color: var(--color-gray-light);

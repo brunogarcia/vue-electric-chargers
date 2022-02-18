@@ -76,14 +76,3 @@ p {
   background-color: var(--status-bg-error);
 }
 
-@include for-phone-only {
-  .hide-small {
-    display: none;
-  }
-}
-
-@include for-tablet-portrait-up {
-  .hide-large {
-    display: none;
-  }
-}
