@@ -1,35 +1,25 @@
 import { render, fireEvent } from "@testing-library/vue";
 import TableCharger from "./TableCharger.vue";
-import { ConnectivityType, ChargerType } from "@/types";
+import mockAppState from "../../../tests/unit/mocks/mockAppState";
+
+const mockChargers = mockAppState().chargers;
 
 describe("TableCharger.vue", () => {
-  const charger = {
-    id: 12345,
-    type: ChargerType.Pulsar,
-    name: "Charger 1",
-    serialNumber: "SN-11249-1",
-    chargingTime: 229074000,
-    energySupplied: 21,
-    currentCharging: 31,
-    wifiSignal: 50,
-    status: 10,
-    manufacturedDate: "2016-02-01T02:48:54.858Z",
-    connectivityType: ConnectivityType.Wifi,
+  const props = {
+    charger: mockChargers[1],
   };
 
   it("renders the charger data", () => {
-    const { getByText } = render(TableCharger, {
-      props: { charger },
-    });
+    const { getByText } = render(TableCharger, { props });
 
     const chargerType = getByText(/Pulsar/);
-    const chargerSerialNumber = getByText(/SN-11249-1/);
+    const chargerSerialNumber = getByText(/SN-34543-2/);
     const chargerConnectivityType = getByText(/wifi/);
-    const chargerStatus = getByText(/ready/);
-    const chargerChargingTime = getByText(/15h 37m/);
-    const chargerEnergySupplied = getByText(/21/);
-    const chargerCurrentCharging = getByText(/31/);
-    const chargerManufacturedDate = getByText(/01 Feb 2016/);
+    const chargerStatus = getByText(/charging/);
+    const chargerChargingTime = getByText(/8h 04m/);
+    const chargerEnergySupplied = getByText(/15/);
+    const chargerCurrentCharging = getByText(/32/);
+    const chargerManufacturedDate = getByText(/29 Aug 2017/);
 
     expect(chargerType).toBeInTheDocument();
     expect(chargerSerialNumber).toBeInTheDocument();
@@ -42,9 +32,7 @@ describe("TableCharger.vue", () => {
   });
 
   it("renders the action buttons", () => {
-    const { getByRole } = render(TableCharger, {
-      props: { charger },
-    });
+    const { getByRole } = render(TableCharger, { props });
 
     const viewButton = getByRole("button", {
       name: /View Session/i,
@@ -58,9 +46,7 @@ describe("TableCharger.vue", () => {
   });
 
   it("click on the view session button should emit the view-session event", async () => {
-    const { getByRole, emitted } = render(TableCharger, {
-      props: { charger },
-    });
+    const { getByRole, emitted } = render(TableCharger, { props });
 
     const viewButton = getByRole("button", {
       name: /View Session/i,
@@ -71,13 +57,11 @@ describe("TableCharger.vue", () => {
     const event = emitted();
 
     expect(event["view-session"]).toBeTruthy();
-    expect(event["view-session"][0]).toStrictEqual([12345]);
+    expect(event["view-session"][0]).toStrictEqual([2]);
   });
 
   it("click on the delete button should emit the delete event", async () => {
-    const { getByRole, emitted } = render(TableCharger, {
-      props: { charger },
-    });
+    const { getByRole, emitted } = render(TableCharger, { props });
 
     const deleteButton = getByRole("button", {
       name: /Delete/i,
@@ -88,6 +72,6 @@ describe("TableCharger.vue", () => {
     const event = emitted();
 
     expect(event["delete"]).toBeTruthy();
-    expect(event["delete"][0]).toStrictEqual([12345]);
+    expect(event["delete"][0]).toStrictEqual([2]);
   });
 });

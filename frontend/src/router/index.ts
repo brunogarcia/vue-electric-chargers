@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import Home from "@/views/Home.vue";
+import Home from "@/views/Home/Home.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -8,10 +8,10 @@ const routes: Array<RouteRecordRaw> = [
     component: Home,
   },
   {
-    path: "/charger/:id",
-    name: "Charger",
+    path: "/details/:id",
+    name: "Details",
     component: () =>
-      import(/* webpackChunkName: "charger" */ "../views/Charger.vue"),
+      import(/* webpackChunkName: "details" */ "../views/Details/Details.vue"),
   },
 ];
 
