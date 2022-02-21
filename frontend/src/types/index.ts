@@ -22,6 +22,14 @@ export enum ChargerStatusName {
   Unknown = "unknown",
 }
 
+export enum ChargerStyle {
+  Active = "active",
+}
+
+export enum ChargerErrorName {
+  NoApplied = "n.a.",
+}
+
 export interface Charger {
   id: number;
   type: ChargerType;
@@ -40,8 +48,8 @@ type ChargerUpdated = Modify<
   Charger,
   {
     chargingTime: string;
-    energySupplied: string | number;
-    currentCharging: string | number;
+    energySupplied: number | ChargerErrorName;
+    currentCharging: number | ChargerErrorName;
   }
 >;
 
@@ -59,4 +67,5 @@ export enum EventType {
   HIDE_MODAL = "hide-modal",
   VIEW_SESSION = "view-session",
   DELETE = "delete",
+  SET_CHARGER_FILTER = "set-charger-filter",
 }

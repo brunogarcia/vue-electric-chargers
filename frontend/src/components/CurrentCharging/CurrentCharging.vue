@@ -1,26 +1,32 @@
 <template>
-  <div class="current-charging--container">
+  <div v-if="data" class="current-charging--container">
     <img :src="WifiIcon" alt="Wifi" />
     <span class="current-charging--data color-gray font-size-medium">
-      {{ currentCharging }}%
+      {{ data }}%
     </span>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 import WifiIcon from "@/assets/icons/wifi.svg";
+import { ChargerErrorName } from "@/types";
 
 export default defineComponent({
   name: "CurrentCharging",
   props: {
     currentCharging: {
-      type: Number,
+      type: [Number, String] as PropType<number | ChargerErrorName>,
       required: true,
     },
   },
-  setup() {
+  setup(props) {
+    const data = Number.isInteger(props.currentCharging)
+      ? props.currentCharging
+      : null;
+
     return {
+      data,
       WifiIcon,
     };
   },

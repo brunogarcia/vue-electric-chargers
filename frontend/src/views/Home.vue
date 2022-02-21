@@ -1,20 +1,80 @@
 <template>
   <div class="home-container">
-    <TableFilters />
-    <Table />
+    <ModalCharger
+      v-if="isModalDisplayed"
+      :charger="currentCharger"
+      @hide-modal="toggleModal"
+    />
+
+    <TableFilters
+      :charger-filter="chargerFilter"
+      @set-charger-filter="setChargerFilter"
+    />
+
+    <TableChargers :chargers="chargers" @view-session="onViewSession" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import Table from "@/components/Table/Table.vue";
+import { defineComponent, watch } from "vue";
+
+import useModal from "@/composables/useModal";
+import useChargers from "@/composables/useChargers";
+import useCurrentCharger from "@/composables/useCurrentCharger";
+
+import ModalCharger from "@/components/ModalCharger/ModalCharger.vue";
 import TableFilters from "@/components/TableFilters/TableFilters.vue";
+import TableChargers from "@/components/TableChargers/TableChargers.vue";
 
 export default defineComponent({
   name: "Home",
   components: {
-    Table,
+    ModalCharger,
     TableFilters,
+    TableChargers,
+  },
+  setup() {
+    const { isModalDisplayed, toggleModal } = useModal();
+    const { chargers, findCharger, chargerFilter, setChargerFilter } =
+      useChargers();
+    const {
+      currentCharger,
+      currentChargerId,
+      setCurrentCharger,
+      setCurrentChargerId,
+    } = useCurrentCharger();
+
+    const onViewSession = (chargerId: number) => {
+      setCurrentChargerId(chargerId);
+    };
+
+    const displayModalCharger = (id: number | null) => {
+      if (id === null) {
+        setCurrentCharger(undefined);
+        return;
+      }
+
+      setCurrentCharger(findCharger(id));
+
+      if (currentCharger.value) {
+        toggleModal();
+      }
+    };
+
+    watch(
+      () => currentChargerId.value,
+      (data) => displayModalCharger(data)
+    );
+
+    return {
+      chargers,
+      chargerFilter,
+      toggleModal,
+      onViewSession,
+      isModalDisplayed,
+      setChargerFilter,
+      currentCharger,
+    };
   },
 });
 </script>

@@ -8,14 +8,15 @@ const { isSameChargerStatus } = getChargerStatus;
 
 interface ComposableChargers {
   chargers: ComputedRef<Charger[]>;
-  getChargerFilter: ComputedRef<ChargerStatusName>;
+  chargerFilter: ComputedRef<ChargerStatusName>;
   setChargerFilter: (filter: ChargerStatusName) => void;
+  findCharger: (chargerId: number) => Charger | undefined;
 }
 
 export default function useChargers(): ComposableChargers {
   const store = useStore();
 
-  const getChargerFilter = computed(
+  const chargerFilter = computed(
     (): ChargerStatusName => store.getters[GETTERS.TABLE_FILTER]
   );
 
@@ -24,11 +25,11 @@ export default function useChargers(): ComposableChargers {
 
   const chargersByFilter = (): Charger[] =>
     store.getters[GETTERS.CHARGERS].filter((charger: Charger) =>
-      isSameChargerStatus(charger.status, getChargerFilter.value)
+      isSameChargerStatus(charger.status, chargerFilter.value)
     );
 
   const chargers = computed((): Charger[] => {
-    const hasFilter = getChargerFilter.value !== ChargerStatusName.All;
+    const hasFilter = chargerFilter.value !== ChargerStatusName.All;
 
     if (hasFilter) {
       return chargersByFilter();
@@ -37,9 +38,13 @@ export default function useChargers(): ComposableChargers {
     return store.getters[GETTERS.CHARGERS];
   });
 
+  const findCharger = (chargerId: number): Charger | undefined =>
+    chargers.value.find((charger: Charger) => charger.id === chargerId);
+
   return {
     chargers,
-    getChargerFilter,
+    findCharger,
+    chargerFilter,
     setChargerFilter,
   };
 }

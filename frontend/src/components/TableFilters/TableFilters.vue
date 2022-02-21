@@ -2,41 +2,43 @@
   <div class="table-filters-container">
     <ul>
       <li
-        v-for="item in tableFilters()"
-        :key="item.id"
-        :data-testid="item.id"
-        @click="onActiveTableFilter(item.id)"
-        :class="isActiveTableFilter(item.id)"
+        v-for="filter in filters"
+        :key="filter.id"
+        :data-testid="filter.id"
+        @click="onActiveTableFilter(filter.id)"
+        :class="isActiveTableFilter(filter.id)"
       >
-        {{ item.id }}
+        {{ filter.id }}
       </li>
     </ul>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { ChargerStatusName } from "@/types";
-import useChargers from "@/composables/useChargers";
+import { defineComponent, PropType } from "vue";
 import tableFilters from "@/components/TableFilters/utils/data";
+import { ChargerStatusName, ChargerStyle, EventType } from "@/types";
 
 export default defineComponent({
   name: "TableFilter",
+  props: {
+    chargerFilter: {
+      type: String as PropType<ChargerStatusName>,
+      required: true,
+    },
+  },
 
-  setup() {
-    const { getChargerFilter, setChargerFilter } = useChargers();
-
-    const onActiveTableFilter = (filter: ChargerStatusName) => {
-      setChargerFilter(filter);
+  setup(props, { emit }) {
+    const isActiveTableFilter = (filter: ChargerStatusName) => {
+      return props.chargerFilter === filter ? ChargerStyle.Active : "";
     };
 
-    const isActiveTableFilter = (filter: ChargerStatusName) => {
-      return getChargerFilter.value === filter ? "active" : "";
+    const onActiveTableFilter = (filter: ChargerStatusName) => {
+      emit(EventType.SET_CHARGER_FILTER, filter);
     };
 
     return {
-      tableFilters,
-      getChargerFilter,
+      filters: tableFilters(),
       isActiveTableFilter,
       onActiveTableFilter,
     };

@@ -1,6 +1,8 @@
+import { ChargerErrorName } from "@/types";
+
 export default function getChargingTime(chargingTime: number | null): string {
   if (!chargingTime) {
-    return "n.a.";
+    return ChargerErrorName.NoApplied;
   }
 
   const minutes = Math.floor((chargingTime / (1000 * 60)) % 60);

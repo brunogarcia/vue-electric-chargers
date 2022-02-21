@@ -1,13 +1,13 @@
-import Table from "./Table.vue";
 import { ChargerStatusName } from "@/types";
 import { ACTIONS } from "@/store/store.types";
+import TableChargers from "./TableChargers.vue";
 
 import store from "../../../tests/unit/helpers/createStore";
 import renderComponent from "../../../tests/unit/helpers/renderComponent";
 
-describe("Table.vue", () => {
+describe("TableChargers.vue", () => {
   it("renders the header", () => {
-    const { getByText } = renderComponent(Table);
+    const { getByText } = renderComponent(TableChargers);
 
     const columnDevice = getByText("Device");
     const columnConnectivity = getByText("Connectivity");
@@ -29,13 +29,13 @@ describe("Table.vue", () => {
   });
 
   it("renders all the chargers", () => {
-    const { getAllByTestId } = renderComponent(Table);
+    const { getAllByTestId } = renderComponent(TableChargers);
     const chargers = getAllByTestId("table-charger");
     expect(chargers).toHaveLength(3);
   });
 
   it("renders the chargers filted by READY status", async () => {
-    const { getAllByTestId, getByText } = renderComponent(Table);
+    const { getAllByTestId, getByText } = renderComponent(TableChargers);
 
     await store.dispatch(ACTIONS.SET_TABLE_FILTER, ChargerStatusName.Ready);
 
@@ -47,7 +47,7 @@ describe("Table.vue", () => {
   });
 
   it("renders the chargers filted by CHARGING status", async () => {
-    const { getAllByTestId, getByText } = renderComponent(Table);
+    const { getAllByTestId, getByText } = renderComponent(TableChargers);
 
     await store.dispatch(ACTIONS.SET_TABLE_FILTER, ChargerStatusName.Charging);
 
@@ -59,7 +59,7 @@ describe("Table.vue", () => {
   });
 
   it("renders the chargers filted by ERROR status", async () => {
-    const { getAllByTestId, getByText } = renderComponent(Table);
+    const { getAllByTestId, getByText } = renderComponent(TableChargers);
 
     await store.dispatch(ACTIONS.SET_TABLE_FILTER, ChargerStatusName.Error);
 

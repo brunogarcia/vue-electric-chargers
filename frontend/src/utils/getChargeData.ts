@@ -1,7 +1,7 @@
-import { Charger, AugmentedCharger } from "@/types";
 import getDateformated from "@/utils/getDateformated";
 import getChargerImage from "@/utils/getChargerImage";
 import getChargingTime from "@/utils/getChargingTime";
+import { Charger, AugmentedCharger, ChargerErrorName } from "@/types";
 
 export default function getChargeData(charger: Charger): AugmentedCharger {
   return {
@@ -11,8 +11,8 @@ export default function getChargeData(charger: Charger): AugmentedCharger {
     name: charger.name,
     serialNumber: charger.serialNumber,
     chargingTime: getChargingTime(charger.chargingTime),
-    energySupplied: charger.energySupplied || "n.a.",
-    currentCharging: charger.currentCharging || "n.a.",
+    energySupplied: charger.energySupplied || ChargerErrorName.NoApplied,
+    currentCharging: charger.currentCharging || ChargerErrorName.NoApplied,
     wifiSignal: charger.wifiSignal,
     status: charger.status,
     manufacturedDate: getDateformated(charger.manufacturedDate),
